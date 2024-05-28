@@ -33,10 +33,8 @@ class Product:
 # Example usage:
 with ConnectDb() as db_conn:
     if db_conn:
-        # Create a Product instance
         product = Product(title="Motorola", price=200)
 
-        # Insert the product into the database
         with db_conn.cursor() as cursor:
             cursor.execute("INSERT INTO products (title, price) VALUES (%s, %s)", (product.title, product.price))
             db_conn.commit()
